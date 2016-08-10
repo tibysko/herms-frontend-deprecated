@@ -1,3 +1,11 @@
+## Custom
+# Ignore build catalog
+dist/
+
+# Ignore typings
+typings/
+
+## Github generated config
 # Logs
 logs
 *.log

@@ -14,12 +14,16 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Production</a></li> 
-        <li><a href="#">Phases</a></li>
-        <li><a href="#">Receipe</a></li>
-        <li><a href="#">Manual operation</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/overview']" href="#">Overview</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/production']" href="#">Production</a></li> 
+        <li routerLinkActive="active"><a [routerLink]="['/phases']" href="#">Phases</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/recipe']" href="#">Recipe</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/manual-operation']" href="#">Manual operation</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
+    
   </div><!-- /.container -->
 </nav>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

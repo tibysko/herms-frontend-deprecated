@@ -1,1 +1,32 @@
-<h1>Manual operation</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Board</th>
+            <th>Direction</th>
+            <th>Type</th>
+            <th>Pin Id</th>
+            <th>Value</th>
+            <th>Operation</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pin of pins">
+            <td>{{pin.name}}</td>
+            <td>{{pin.board}}</td>
+            <td>{{pin.direction}}</td>
+            <td>{{pin.type}}</td>
+            <td>{{pin.id}}</td>
+            <td></td>
+            <td>
+                <div *ngIf="pin.direction === 'out'">
+                    <button class="btn btn-success" (click)="operationOn(pin)">On</button>
+                    <button class="btn btn-danger" (click)="operationOff(pin)">Off</button>
+                </div>
+                <div *ngIf="pin.direction === 'in'">
+                    <button class="btn btn-primary" (click)="operationRead(pin)">Read</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

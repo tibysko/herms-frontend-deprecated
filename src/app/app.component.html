@@ -1,29 +1,27 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><img src="../../public/images/nav-brand-beer.png"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse" id="navbar" data-toggle="collapse" data-target=".navbar-collapse.in">
       <ul class="nav navbar-nav">
         <li routerLinkActive="active"><a [routerLink]="['/overview']" href="#">Overview</a></li>
-        <li routerLinkActive="active"><a [routerLink]="['/production']" href="#">Production</a></li> 
+        <li routerLinkActive="active"><a [routerLink]="['/production']" href="#">Production</a></li>
         <li routerLinkActive="active"><a [routerLink]="['/phases']" href="#">Phases</a></li>
         <li routerLinkActive="active"><a [routerLink]="['/recipe']" href="#">Recipe</a></li>
         <li routerLinkActive="active"><a [routerLink]="['/manual-operation']" href="#">Manual operation</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
-    
   </div><!-- /.container -->
 </nav>
-<div class="container">
+<div class="container-fluid">
   <router-outlet></router-outlet>
 </div>

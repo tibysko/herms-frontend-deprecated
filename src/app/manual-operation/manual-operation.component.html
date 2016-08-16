@@ -1,11 +1,13 @@
+<button class="btn btn-primary" (click)="togglePinInfo()">{{ showExtraPinInfo ? 'Less info' : 'More info' }}</button>
+
 <table class="table table-striped">
     <thead>
         <tr>
             <th>Name</th>
-            <th>Board</th>
-            <th>Direction</th>
-            <th>Type</th>
-            <th>Pin Id</th>
+            <th *ngIf="showExtraPinInfo">Board</th>
+            <th *ngIf="showExtraPinInfo">Mode</th>
+            <th *ngIf="showExtraPinInfo">Type</th>
+            <th *ngIf="showExtraPinInfo">Pin Id</th>
             <th>Value</th>
             <th>Operation</th>
         </tr>
@@ -13,17 +15,17 @@
     <tbody>
         <tr *ngFor="let pin of pins">
             <td>{{pin.name}}</td>
-            <td>{{pin.board}}</td>
-            <td>{{pin.direction}}</td>
-            <td>{{pin.type}}</td>
-            <td>{{pin.id}}</td>
-            <td></td>
+            <td *ngIf="showExtraPinInfo">{{pin.board}}</td>
+            <td *ngIf="showExtraPinInfo">{{pin.mode}}</td>
+            <td *ngIf="showExtraPinInfo">{{pin.type}}</td>
+            <td *ngIf="showExtraPinInfo">{{pin.id}}</td>
+            <td>{{pin.value}}</td>
             <td>
-                <div *ngIf="pin.direction === 'out'">
+                <div *ngIf="pin.mode === 'out'">
                     <button class="btn btn-success" (click)="operationOn(pin)">On</button>
                     <button class="btn btn-danger" (click)="operationOff(pin)">Off</button>
                 </div>
-                <div *ngIf="pin.direction === 'in'">
+                <div *ngIf="pin.mode === 'in'">
                     <button class="btn btn-primary" (click)="operationRead(pin)">Read</button>
                 </div>
             </td>

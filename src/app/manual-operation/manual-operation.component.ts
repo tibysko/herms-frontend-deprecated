@@ -10,6 +10,7 @@ import { Pin } from '../model/pin';
 
 export class ManualOperationComponent implements OnInit {
     pins: Pin[] = [];
+    showExtraPinInfo: boolean = false;
     
     constructor(
         private pinService : PinService
@@ -20,14 +21,23 @@ export class ManualOperationComponent implements OnInit {
     }
 
     operationOn(pin: Pin){
-        console.log(JSON.stringify(pin));
+        this.pinService.write(pin, true);
     }
 
     operationOff(pin: Pin){
-        console.log(JSON.stringify(pin));
+        this.pinService.write(pin, false);
     }
 
-    operationRead(pin: Pin){
-        console.log(JSON.stringify(pin));
+    operationRead(selectedPin: Pin){
+        let pinRow = this.pins.filter(pin => pin.name === selectedPin.name) as Pin[];
+
+        this.pinService.read(selectedPin).then(result => {
+            if(pinRow.length > 0) pinRow[0].value = result.value;
+        });
+    }
+
+    togglePinInfo(){
+        console.log('toogle');
+        this.showExtraPinInfo = !this.showExtraPinInfo;
     }
 }

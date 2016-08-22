@@ -16,8 +16,17 @@
         <li routerLinkActive="active"><a [routerLink]="['/overview']" href="#">Overview</a></li>
         <li routerLinkActive="active"><a [routerLink]="['/production']" href="#">Production</a></li>
         <li routerLinkActive="active"><a [routerLink]="['/phases']" href="#">Phases</a></li>
-        <li routerLinkActive="active"><a [routerLink]="['/recipe']" href="#">Recipe</a></li>
         <li routerLinkActive="active"><a [routerLink]="['/manual-operation']" href="#">Manual operation</a></li>
+           <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recipe <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Active recipe</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Singe infusion</a></li>
+            <li><a href="#">Multi rest</a></li>
+          </ul>
+        </li>
+        <li routerLinkActive="active"><a [routerLink]="['/alarm']" href="#">Alarm</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container -->

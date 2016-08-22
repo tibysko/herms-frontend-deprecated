@@ -1,34 +1,70 @@
-<button class="btn btn-primary" (click)="togglePinInfo()">{{ showExtraPinInfo ? 'Less info' : 'More info' }}</button>
 
+<h1>Valves</h1>
 <table class="table table-striped">
     <thead>
         <tr>
             <th>Name</th>
-            <th *ngIf="showExtraPinInfo">Board</th>
-            <th *ngIf="showExtraPinInfo">Mode</th>
-            <th *ngIf="showExtraPinInfo">Type</th>
-            <th *ngIf="showExtraPinInfo">Pin Id</th>
-            <th>Value</th>
-            <th>Operation</th>
+            <th>Auto</th>
+            <th>Close</th>
+            <th>Open</th>        
+            <th>Closed</th>
+            <th>Opened</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let pin of pins">
+        <tr *ngFor="let pin of pinsValves">
             <td>{{pin.name}}</td>
-            <td *ngIf="showExtraPinInfo">{{pin.board}}</td>
-            <td *ngIf="showExtraPinInfo">{{pin.mode}}</td>
-            <td *ngIf="showExtraPinInfo">{{pin.type}}</td>
-            <td *ngIf="showExtraPinInfo">{{pin.id}}</td>
-            <td>{{pin.value}}</td>
-            <td>
-                <div *ngIf="pin.mode === 'out'">
-                    <button class="btn btn-success" (click)="operationOn(pin)">On</button>
-                    <button class="btn btn-danger" (click)="operationOff(pin)">Off</button>
-                </div>
-                <div *ngIf="pin.mode === 'in'">
-                    <button class="btn btn-primary" (click)="operationRead(pin)">Read</button>
-                </div>
-            </td>
+            <td><button class="btn btn-default">Auto</button></td>
+            <td><button class="btn btn-default">Close</button></td>
+            <td><button class="btn btn-default">Open</button></td>
+            <td class="danger" >{{pin.closed}}</td>
+            <td class="success">{{pin.opened}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<h1>Controllers</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Auto</th>
+            <th>SP</th>
+            <th>PV</th>
+            <th>OUT</th>
+            <th>Para</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pin of pinsValves">
+            <td>{{pin.name}}</td>
+            <td><button class="btn btn-default">Auto</button></td>
+            <td><input type="number" ></td>
+            <td>10 C</td>
+            <td><input type="number"></td>
+            <td><button class="btn btn-default">Go to Para</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<h1>Pumps</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Auto</th>
+            <th>Stop</th>
+            <th>Start</th>
+            <th>Running</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pin of pinsValves">
+            <td>{{pin.name}}</td>
+            <td><button class="btn btn-default">Auto</button></td>
+            <td><button class="btn btn-default">Close</button></td>
+            <td><button class="btn btn-default">Open</button></td>
+            <td class="success"></td>
         </tr>
     </tbody>
 </table>

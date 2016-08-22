@@ -10,11 +10,22 @@ import { Pin } from '../model/pin';
 
 export class ManualOperationComponent implements OnInit {
     pins: Pin[] = [];
+    pinsValves: any = [];
     showExtraPinInfo: boolean = false;
     
     constructor(
         private pinService : PinService
-    ){ }
+
+        
+
+    ){ 
+        this.pinsValves = [{
+            name: "1",
+            closed: "0",
+            opened: "1"
+        }];
+
+    }
 
     ngOnInit(){
         this.pinService.getPins().then(pins => this.pins = pins);

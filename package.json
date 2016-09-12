@@ -4,7 +4,7 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "start": "webpack-dev-server --inline --progress --hot --port 8080 --host 0.0.0.0",
+    "start": "webpack-dev-server --inline --progress --hot --port 3000 --host 0.0.0.0",
     "test": "karma start",
     "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
     "postinstall": "typings install"
@@ -24,6 +24,8 @@
     "jquery": "^3.1.0",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.6",
+    "socket.io-client": "^1.4.8",
+    "socketio": "^1.0.0",
     "zone.js": "0.6.12"
   },
   "devDependencies": {

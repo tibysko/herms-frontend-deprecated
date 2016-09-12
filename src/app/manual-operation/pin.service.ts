@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
-import { Pin } from '../model/pin';
+import { Pin } from '../model/pin.interface';
 
 
 @Injectable()
@@ -21,18 +21,18 @@ export class PinService{
     }
 
     write(pin: Pin, value: boolean){
-        let url =`${this.apiUrl}/${pin.name}`;
-        let body = {'name': pin.name, 'value': value};
+        //let url =`${this.apiUrl}/${pin.id}`;
+        //let body = {'name': pin.id, 'value': value};
 
-        return this.http.post(url, body , this.headers)
-            .toPromise();
+        //return this.http.post(url, body , this.headers)
+          //  .toPromise();
     }
 
     read(pin: Pin){
-        let url =`${this.apiUrl}/${pin.name}`;
+        /*let url =`${this.apiUrl}/${pin.id}`;
 
         return this.http.get(url)
             .toPromise()
-            .then(response => response.json() as Pin);
+            .then(response => response.json() as Pin);*/
     }
 }

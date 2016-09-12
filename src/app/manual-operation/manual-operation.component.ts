@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { PinService } from './pin.service';
-import { Pin } from '../model/pin';
+import { Pin } from '../model/pin.interface';
 
 @Component({
     selector: 'manual-operation',
@@ -40,11 +40,11 @@ export class ManualOperationComponent implements OnInit {
     }
 
     operationRead(selectedPin: Pin){
-        let pinRow = this.pins.filter(pin => pin.name === selectedPin.name) as Pin[];
+        //let pinRow = this.pins.filter(pin => pin.id === selectedPin.id) as Pin[];
 
-        this.pinService.read(selectedPin).then(result => {
-            if(pinRow.length > 0) pinRow[0].value = result.value;
-        });
+        //this.pinService.read(selectedPin).then(result => {
+          //  if(pinRow.length > 0) pinRow[0].value = result.value;
+        //});
     }
 
     togglePinInfo(){
